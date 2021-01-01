@@ -1,0 +1,33 @@
+* {
+    /* outline: 1px solid grey; */
+    /* margin: 0 auto; */
+}
+
+button {
+    box-shadow: 3px 3px black;
+    margin-left: 42%;
+}
+
+form {
+    padding-top: 10px;
+    width: 400px;
+    
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+textarea, input {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+td{
+    width: 30%;
+    margin-right: 10px;
+}
+
+a {
+    margin-left: 400px;
+}

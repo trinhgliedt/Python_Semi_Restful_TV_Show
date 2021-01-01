@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit show</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static 'addEdit.css' %}'>
+</head>
+<body>
+    <a href="/">Go Back</a>
+    {% for error in messages %}
+        <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    <form action="/shows/{{ show_to_edit.id }}/save-edit" class="addEdit" method="POST">
+        {% csrf_token %}
+        <h1>Edit show {{ show_to_edit.id }}</h1>
+        <label class="addEdit" for="tittle">Tittle</label>
+        <textarea class="addEdit" name="tittle" cols="50" rows="1">{{ show_to_edit.tittle }}</textarea>
+        <table>
+            <tr>
+                <td><label class="sideBox addEdit" for="network">Network</label></td>
+                <td><label class="sideBox addEdit" for="released_date">Released Date</label></td>
+            </tr>
+            <tr>
+                <td><input class="sideBox addEdit" type="text" name="network" value="{{ show_to_edit.network }}"></td>
+                <td><input class="sideBox addEdit" type="date" name="released_date" value="{{ show_to_edit.released_date }}"></td>
+            </tr>
+        </table>
+        <label class="addEdit" for="desc">Description</label>
+        <textarea class="addEdit" name="desc" cols="50" rows="8">{{ show_to_edit.description }}</textarea>
+        <button>Update</button>
+    </form>    
+    <a href="/shows/{{ show_to_edit.id }}">Go to Show</a>
+</body>
+</html>
